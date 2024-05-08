@@ -3,12 +3,11 @@
   <div class="flex-auto flex flex-col gap-12 justify-center items-center">
     {{ if .Site.Params.avatar}}
     <div class="relative transition-transform hover:scale-110 hover:duration-500 ">
-      
       <img
-        class="w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border-2 border-neutral-100 dark:border-neutral-100"
+        class="w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border-0 border-neutral-100 dark:border-neutral-100"
         src="{{ .Site.Params.avatar}}" alt="头像">
       <span
-        class="absolute w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 bottom-1 right-4 bg-green-400 border-2 border-neutral-100 rounded-full"></span>
+        class="hidden absolute w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 bottom-1 right-4 bg-green-400 border-2 border-neutral-100 rounded-full"></span>
     </div>
     {{ end }}
     <div class="flex flex-col gap-8 justify-center items-center text-center">
