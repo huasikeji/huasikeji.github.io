@@ -27,8 +27,8 @@ publishDir = 'public'
 
 [params.footer]
     startDate = 2024
-    icp = ''
+    #icp = ''
 [params.footer.police]
-    number = 
+    #number = 
     text = ''
 

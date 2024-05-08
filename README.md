@@ -1,8 +1,8 @@
-# 个人主页
+# 网站主页
 
 ## 简介
 
-本项目是 [我（攀哥）](https://www.yangzupan.com/)个人主页网站。本项目采用 [Hugo](https://gohugo.io/) 进行构建。
+本项目是 [花思科技](https://www.huasikeji.com/)的官方网站。本项目采用 [Hugo](https://gohugo.io/) 进行构建。
 
 ## 演示
 
@@ -12,19 +12,17 @@
 
 本站使用了 阿里云 提供的静态网站托管服务，演示地址如下：
 
-- [https://www.yangzupan.com](https://www.yangzupan.com)
+- [https://www.huasikeji.com](https://www.huasikeji.com)
 
-- [https://www.laopange.com](https://www.laopange.com)
+- [https://www.huasiwang.com](https://www.huasiwang.com)
 
-- [https://www.pange.net](https://www.pange.net)
-
-- [https://www.apan.com.cn](https://www.apan.com.cn)
+- [https://www.huasihuasi.com](https://www.huasihuasi.com)
 
 ### GitHub
 
 本站使用了 GitHub 提供的静态网站托管服务 GitHub Pages，演示地址如下：
 
-- [https://yangzupan.github.io](https://yangzupan.github.io)
+- [https://huasikeji.github.io](https://huasikeji.github.io)
 
 ### Cloudflare
 

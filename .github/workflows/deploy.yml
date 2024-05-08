@@ -92,7 +92,7 @@ jobs:
             bucket: "huasiwang"
             endpoint: "oss-cn-chengdu.aliyuncs.com" 
             folder: "./public2"
-  deploy-huasihuahui:
+  deploy-huasihuasi:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -109,7 +109,7 @@ jobs:
 
       # 构建文档
       - name: Build Docs
-        run: hugo --config huasihuahui.toml
+        run: hugo --config huasihuasi.toml
       
       # 同步文件到 OSS
       - name: Sync files to OSS
@@ -118,7 +118,7 @@ jobs:
             incremental : false
             accessKeyId: ${{ secrets.ALI_ACCESS_KEY_ID }}
             accessKeySecret: ${{ secrets.ALI_ACCESS_KEY_SECRET }}
-            bucket: "huasihuahui"
+            bucket: "huasihuasi"
             endpoint: "oss-cn-chengdu.aliyuncs.com" 
             folder: "./public3"
   
