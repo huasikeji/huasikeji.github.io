@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  .scrollbars-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  @font-face {
+    font-family: 'zhimangxing';
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://cdn.yangzupan.com/fonts/zhimangxing/zhimangxing-Regular.woff) format('woff');
+  }
+}
+
+
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+::selection {
+  border-radius: 4px;
+  background: rgba(0, 0, 0, .1);
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="{{ .Site.Language.LanguageCode }}">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ block "title" . }}{{ .Site.Title }} - {{ .Site.Params.subTitle }}{{ end }}</title>
+    <meta name="keywords" content="{{ .Site.Params.keywords }}" />
+    <meta name="description" content="{{ .Site.Params.description }}" />
+    <meta name="theme-color" content="#ffffff" />
+    <script>
+        if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+            document.documentElement.classList.add("dark");
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#171717')
+        } else {
+            document.documentElement.classList.remove("dark");
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+
+        }
+    </script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    {{range .Site.Params.head.cssFile}}
+    {{ if .link}}
+    <link rel="stylesheet" href="{{ .link}}">
+    {{ end }}
+    {{ end }}
+    {{- with resources.Get "css/main.css" }}
+    {{- if eq hugo.Environment "development" }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" />
+    {{- else }}{{- with . | minify }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" />
+    {{- end }}{{- end }}{{- end }}
+</head>
+
+<body class="w-full bg-white text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100">
+    <div class="flex min-h-screen flex-col space-y-4">
+        <header class="flex-none ">{{ block "header" . }}{{ end }}</header>
+        <main class="flex-auto">{{ block "main" . }}{{ end }}</main>
+        <footer class="flex-none ">{{ partial "footer.html" . }}</footer>
+    </div>
+    <div>
+        {{ block "other" . }}{{ end }}
+    </div>
+    {{range .Site.Params.foot.jsFile}}
+    {{ if .link}}
+    <script src="{{ .link}}"></script>
+    {{ end }}
+    {{ end }}
+
+    {{- with resources.Get "js/main.js" }}
+    {{- if eq hugo.Environment "development" }}
+    <script src="{{ .RelPermalink }}"></script>
+    {{- else }}
+    {{- with . | minify }}
+    <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+    {{- end }}
+    {{- end }}
+</body>
+
+</html>

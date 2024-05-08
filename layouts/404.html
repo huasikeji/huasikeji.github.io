@@ -1,0 +1,15 @@
+{{ define "title" }} 404 - 页面没有找到 {{ end }}
+
+{{ define "main" }}
+<section class="h-screen flex flex-col justify-center items-center gap-6 text-center">
+  <div class="text-6xl lg:text-7xl text-neutral-700 dark:text-neutral-200">404</div>
+  <div class="text-xl lg:text-2xl text-neutral-700 dark:text-neutral-200">很抱歉，您访问的页面不存在！</div>
+  <div class="text-lg lg:text-xl text-neutral-700 dark:text-neutral-200/70">请仔细检查您输入的网址是否正确。</div>
+  <div class="flex gap-6">
+    <a class="py-2 px-5 bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-sky-500 hover:bg-sky-500 hover:text-neutral-100 rounded-full text-neutral-700 dark:text-neutral-200"
+      href="javascript:history.go(-1)">返回上一页</a>
+    <a class="py-2 px-5 bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-sky-500 hover:bg-sky-500 hover:text-neutral-100 rounded-full text-neutral-700 dark:text-neutral-200"
+      href="/">返回首页</a>
+  </div>
+</section>
+{{ end }}

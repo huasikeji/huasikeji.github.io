@@ -1,0 +1,124 @@
+name: deploy
+on:
+  push:
+    branches:
+      # 确保这是你正在使用的分支名称
+      - main
+permissions:
+  contents: write
+jobs:
+  deploy-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # 如果你文档需要 Git 子模块，取消注释下一行
+          # submodules: true
+      # 安装 Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+
+      # 构建文档
+      - name: Build Docs
+        run: hugo 
+      
+      # 发布到 Github Pages
+      - name: Publish to Github Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          # 这是文档部署到的分支名称
+          branch: pages
+          folder: public/
+  deploy-huasikeji:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # 如果你文档需要 Git 子模块，取消注释下一行
+          # submodules: true
+      # 安装 Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+
+      # 构建文档
+      - name: Build Docs
+        run: hugo --config huasikeji.toml
+      
+      # 同步文件到 OSS
+      - name: upload files to OSS
+        uses: fangbinwei/aliyun-oss-website-action@v1
+        with:
+            incremental : false
+            accessKeyId: ${{ secrets.ALI_ACCESS_KEY_ID }}
+            accessKeySecret: ${{ secrets.ALI_ACCESS_KEY_SECRET }}
+            bucket: "huasikeji"
+            endpoint: "oss-cn-chengdu.aliyuncs.com" 
+            folder: "./public1"
+
+  deploy-huasiwang:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # 如果你文档需要 Git 子模块，取消注释下一行
+          # submodules: true
+      # 安装 Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+
+      # 构建文档
+      - name: Build Docs
+        run: hugo --config huasiwang.toml
+      
+      # 同步文件到 OSS
+      - name: upload files to OSS
+        uses: fangbinwei/aliyun-oss-website-action@v1
+        with:
+            incremental : false
+            accessKeyId: ${{ secrets.ALI_ACCESS_KEY_ID }}
+            accessKeySecret: ${{ secrets.ALI_ACCESS_KEY_SECRET }}
+            bucket: "huasiwang"
+            endpoint: "oss-cn-chengdu.aliyuncs.com" 
+            folder: "./public2"
+  deploy-huasihuahui:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # 如果你文档需要 Git 子模块，取消注释下一行
+          # submodules: true
+      # 安装 Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+
+      # 构建文档
+      - name: Build Docs
+        run: hugo --config huasihuahui.toml
+      
+      # 同步文件到 OSS
+      - name: Sync files to OSS
+        uses: fangbinwei/aliyun-oss-website-action@v1
+        with:
+            incremental : false
+            accessKeyId: ${{ secrets.ALI_ACCESS_KEY_ID }}
+            accessKeySecret: ${{ secrets.ALI_ACCESS_KEY_SECRET }}
+            bucket: "huasihuahui"
+            endpoint: "oss-cn-chengdu.aliyuncs.com" 
+            folder: "./public3"
+  
