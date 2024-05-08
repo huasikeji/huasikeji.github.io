@@ -12,11 +12,10 @@
         if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
         ) {
             document.documentElement.classList.add("dark");
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#171717')
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#00000')
         } else {
             document.documentElement.classList.remove("dark");
             document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-
         }
     </script>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -33,7 +32,7 @@
     {{- end }}{{- end }}{{- end }}
 </head>
 
-<body class="w-full bg-white text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100">
+<body class="w-full bg-white text-neutral-800 dark:bg-black dark:text-neutral-100">
     <div class="flex min-h-screen flex-col space-y-4">
         <header class="flex-none ">{{ block "header" . }}{{ end }}</header>
         <main class="flex-auto">{{ block "main" . }}{{ end }}</main>

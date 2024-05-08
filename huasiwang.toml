@@ -14,7 +14,159 @@ publishDir = 'public2'
     siteDescription = '花点心思，遇见更好的你。一家为你花心思的公司'
 
 [[params.head.cssFile]]
-    link = ''
+    link = 'https://cdn.huasikeji.com/libs/fontawesome/6.5.2/css/all.min.css'
+
+[[params.header.index.but]]
+    title = '了解更多'
+    emphasize = true
+    link = '#introduce'
+[[params.header.index.but]]
+    title = '联系我们'
+    emphasize = false
+    link = '#contact'
+
+[params.main.intro]
+    title = '花思简介'
+    subTitle = 'Company Profile'
+    img = 'https://cdn.huasikeji.com/images/home/001.jpg'
+    [params.main.intro.content]
+        title = '公司简介' 
+        text = '花思成立于 2024 年 02 月 08 日，是一家新兴的互联网科技公司。主营业务包括：软件开发、鲜切花零售批发、创新产品研发、自媒体运营等。我们的愿景是 “成为一家小而美的企业，花点心思为用户提供解决方案”。 我们希望通过科技创新，为您提升学习、工作、生活、以及获取信息的效率，拥抱更美好的未来。'
+        but.title = '了解更多'
+        but.link = ''
+
+[params.main.business]
+    title = '主营业务'
+    subTitle = 'Main Business'
+    [[params.main.business.content]]
+        text = '软件开发'
+        description = '专注于提供行业解决方案、APP小程序开发等技术服务'
+        img = 'https://cdn.huasikeji.com/images/home/002.jpg'
+        link.text = '详情'
+        link.url = 'javascript:void (0)'
+    [[params.main.business.content]]
+        text = '鲜花批发'
+        description = '提供鲜花交易平台，让鲜花买卖操作更简单，效率更迅捷，交易更放心。'
+        img = 'https://cdn.huasikeji.com/images/home/003.jpg'
+        link.text = '详情'
+        link.url = 'javascript:void (0)'
+    [[params.main.business.content]]
+        text = '花艺培训'
+        description = '为花艺从业人员及爱好者提供优质的高端花艺设计教学及项目设计服务。'
+        img = 'https://cdn.huasikeji.com/images/home/004.jpg'
+        link.text = '详情'
+        link.url = 'javascript:void (0)'
+    [[params.main.business.content]]
+        text = '媒体运营'
+        description = '为政企单位提供短视频媒体托管运营，广告投放，新媒体课程等服务。'
+        img = 'https://cdn.huasikeji.com/images/home/005.jpg'
+        link.text = '详情'
+        link.url = 'javascript:void (0)'
+
+[params.main.culture]
+    title = '企业文化'
+    subTitle = 'Corporate Culture'
+    mission.title = '使命'
+    mission.text = '让困难不再是困难'
+    vision.title = '愿景'
+    vision.text = '成为一家小而美的企业，花点心思为用户提供解决方案。'
+    
+    values.title = '价值观'
+    [[params.main.culture.values.content]]
+        item = '利他就是极致的利己'
+    [[params.main.culture.values.content]]
+        item = '开放、合作、共赢'
+    [[params.main.culture.values.content]]
+        item = '唯一不变的是变化'
+    [[params.main.culture.values.content]]
+        item = '正直坦诚'
+        [[params.main.culture.values.content.list]]
+            text = '坚守底线，以德为先'
+        [[params.main.culture.values.content.list]]
+            text = '准确、简洁、直接'
+        [[params.main.culture.values.content.list]]
+            text = '就事论事，理性沟通，避免主观臆测和情绪化表达'
+    [[params.main.culture.values.content]]
+        item = '求真务实'
+        [[params.main.culture.values.content.list]]
+            text = '独立思考，刨根问底，找到本质'
+        [[params.main.culture.values.content.list]]
+            text = '不自嗨，注重实际效果'
+        [[params.main.culture.values.content.list]]
+            text = '直接体验，深入事实，拿一手数据或信息'
+
+[params.main.develop]
+    title = '发展历程'
+    subTitle = 'Development History'
+    [[params.main.develop.content]]
+        year = 2024
+        [[params.main.develop.content.list]]
+            time = '2024年01月01日'
+            event = '成立花思工作室'
+        [[params.main.develop.content.list]]
+            time = '2024年02月08日'
+            event = '昆明花思科技有限公司在昆明经开区市场监管局注册登记'
+        [[params.main.develop.content.list]]
+            time = '2024年02月27日'
+            event = '网站完成 ICP 备案，备案号： 滇ICP备2024020422号'
+        [[params.main.develop.content.list]]
+            time = '2024年03月01日'
+            event = '公司官方网站 1.0 版本正式上线'
+        [[params.main.develop.content.list]]
+            time = '2024年04月01日'
+            event = '花思花卉项目正式启动'
+        [[params.main.develop.content.list]]
+            time = '现在'
+            event = '未完待续...'
+
+[params.main.contact]
+    title = '联系我们'
+    subTitle = 'Contact Us'
+    tip = '提示：点击卡片即可联系客服'
+    [[params.main.contact.content]]
+        name = '客服小杨'
+        subTitle = 'VIP 客户专属客服'
+        avatar = 'https://cdn.huasikeji.com/images/home/avatar-yzp.jpg'
+        link = 'https://work.weixin.qq.com/ca/cawcde6bfc6b7450b5'
+        tips = '扫描二维码联系专属客服'  
+        isDownload = false
+    [[params.main.contact.content]]
+        name = '客服小沈'
+        subTitle = 'VIP 客户专属客服'
+        avatar = 'https://cdn.huasikeji.com/images/home/avatar-szy.jpg'
+        link = 'https://work.weixin.qq.com/ca/cawcde042244ebceab'
+        tips = '扫描二维码联系专属客服'
+        isDownload = false
+    [[params.main.contact.content]]
+        name = '客服花花'
+        subTitle = '普通客户售前售后咨询'
+        avatar = 'https://cdn.huasikeji.com/images/home/avatar-default.png'
+        link = 'https://work.weixin.qq.com/kfid/kfc9b5732b9cf74c159'
+        tips = '扫描二维码联系专属客服'
+        isDownload = false
+
+[params.footer.contact]
+    [[params.footer.contact.list]]
+        name = '邮箱'
+        icon = 'fa-solid fa-envelope'
+        link = 'mailto:www@yangzupan.com'
+    [[params.footer.contact.list]]
+        name = '微信二维码'
+        icon = 'fa-brands fa-weixin'
+        isQrCode = true # 二维码必须有id
+        id = 'wx'
+        direction = '' # top,
+        link = 'http://weixin.qq.com/r/qhKstGrEATd_rS7X90e4'
+    [[params.footer.contact.list]]
+        icon = ''
+        id = ''
+        link = ''
+
+[params.footer.copyright]
+    startDate = 2024
+    icp = '滇ICP备2024020422号-2'
+    police.number = 53010002000148
+    police.text = '滇公网安备 53010002000148 号'
 
 [[params.foot.jsFile]]
     link = 'https://cdn.huasikeji.com/libs/flowbite/2.3.0/flowbite.min.js'
@@ -24,11 +176,4 @@ publishDir = 'public2'
     link = 'https://cdn.huasikeji.com/libs/html2canvas/html2canvas.min.js'
 [[params.foot.jsFile]]
     link = ''
- 
-[params.footer]
-    startDate = 2024
-    icp = '滇ICP备2024020422号-2'
-[params.footer.police]
-    number = 53010002000148
-    text = '滇公网安备 53010002000148 号'
 

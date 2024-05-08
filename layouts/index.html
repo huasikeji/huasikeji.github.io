@@ -13,6 +13,26 @@
     <div class="flex flex-col gap-8 justify-center items-center text-center">
       <div class="text-5xl md:text-6xl font-['zhimangxing'] text-sky-500 ">{{ .Site.Params.siteName}}</div>
       <div class="text-base md:text-lg lg:text-xl">{{ .Site.Params.siteDescription}}</div>
+      <div class="flex flex-row items-center justify-center gap-4">
+        {{range .Site.Params.header.index.but}}
+        {{ if .emphasize }}
+        <a href="{{ .link }}"
+          class="inline-flex w-auto items-center justify-center rounded-full bg-sky-500 px-5 py-2.5 text-base text-white hover:bg-sky-600">
+          {{ .title }}
+          <svg class="ms-2 h-3.5 w-3.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+          </svg>
+        </a>
+        {{ else }}
+        <a href="{{ .link }}"
+          class="inline-flex w-auto items-center justify-center rounded-full border border-neutral-200 px-5 py-2.5 text-base hover:bg-neutral-100 dark:border-neutral-600 dark:bg-neutral-800 dark:hover:bg-neutral-700">
+          {{ .title }}
+        </a>
+        {{ end }}
+        {{ end }}
+      </div>
     </div>
   </div>
   <div class="flex-none w-full flex justify-center animate-bounce  py-4 cursor-pointer" onclick="goToMain()">
@@ -24,48 +44,291 @@
 </div>
 {{ end }}
 
-{{ define "main1" }}
-<div class="max-w-screen-xl mx-auto flex flex-col gap-4 p-4">
-  <section class="flex gap-4 flex-col md:flex-row">
-    <div
-      class="w-full md:w-6/12 flex flex-col justify-center gap-4 bg-gradient-to-r from-sky-500 to-blue-400 text-white rounded-xl p-4 md:p-6 ">
-      <div class="text-base lg:text-lg opacity-80">{{.Site.Params.main.intro.subTitle}}</div>
-      <div class="text-2xl md:text-3xl">{{.Site.Params.main.intro.title}} {{ .Title}}</div>
-      <div class="text-base lg:text-lg opacity-80">{{ .Site.Params.main.intro.description }}</div>
+{{ define "main" }}
+<div class="flex flex-col">
+  <!-- 项目简介 -->
+  <section id="introduce" class="bg-neutral-50 dark:bg-neutral-950">
+    <div class="mx-auto max-w-screen-xl  space-y-6 p-4 py-12  sm:space-y-8 md:space-y-10">
+      <!-- 标题 -->
+      <div class="space-y-1 sm:space-y-2 md:space-y-3 md:px-4">
+        <h2 class="text-center text-xl font-extrabold text-neutral-900 sm:text-2xl md:text-3xl dark:text-white">
+          {{ .Site.Params.main.intro.title }}
+        </h2>
+        <p
+          class="mx-auto max-w-3xl text-center text-base font-normal text-neutral-500 sm:text-lg lg:text-xl dark:text-neutral-400">
+          {{ .Site.Params.main.intro.subTitle }}
+        </p>
+      </div>
+      <!-- 内容 -->
+      <div class="flex flex-col justify-center gap-8 sm:flex-row md:items-center md:gap-12 md:px-4 lg:gap-16">
+        <!-- 左边 -->
+        <div class="overflow-hidden rounded-xl object-center">
+          <img src="{{ .Site.Params.main.intro.img }}" alt="{{ .Site.Params.main.intro.title }}"
+            class="h-56 w-full rounded-lg object-cover blur-[2px] sm:h-72 lg:h-80" />
+        </div>
+        <!-- 右边 -->
+        <div class="flex w-full flex-auto flex-col gap-4 md:w-1/2 md:gap-6">
+          <h3 class="text-xl font-semibold text-neutral-900 dark:text-white">
+            {{ .Site.Params.main.intro.content.title }}
+          </h3>
+          <p class="text-base font-normal text-neutral-500 sm:text-lg dark:text-neutral-400">
+            {{ .Site.Params.main.intro.content.text }}
+          </p>
+          <div>
+            {{ if .Site.Params.main.intro.content.but.link}}
+            <a class="inline-flex items-center justify-start gap-2 rounded-full border border-neutral-300 px-4 py-2 text-center text-base font-medium text-neutral-900 hover:bg-neutral-100 dark:border-neutral-600 dark:bg-neutral-700 dark:text-white dark:hover:bg-neutral-600"
+              href="{{ .Site.Params.main.intro.content.but.link }}">
+              {{ .Site.Params.main.intro.content.but.title }}
+              <div class="ml-auto block">
+                <svg class="h-4 w-4 text-neutral-800 dark:text-white" aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </div>
+            </a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      <!-- <hr class="border-neutral-300 dark:border-neutral-700 "> -->
     </div>
-    <div
-      class="w-full md:w-6/12 min-h-64 max-h-72 bg-neutral-100/10 dark:bg-neutral-800  border border-neutral-300 dark:border-neutral-600 rounded-xl overflow-hidden "
-      style="background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('{{ .Site.Params.main.intro.bgImg }}') no-repeat; background-size: cover;">
+  </section>
+  <!-- 主营业务 -->
+  <section id="business">
+    <div class="mx-auto max-w-screen-xl space-y-6 p-4 py-12 sm:space-y-8 md:space-y-10">
+      <div class="space-y-1 sm:space-y-2 md:space-y-3 md:px-4">
+        <h2 class="text-center text-xl font-extrabold text-neutral-900 sm:text-2xl md:text-3xl dark:text-white">
+          {{ .Site.Params.main.business.title }}
+        </h2>
+        <p
+          class="mx-auto max-w-3xl text-center text-base font-normal text-neutral-500 sm:text-lg lg:text-xl dark:text-neutral-400">
+          {{ .Site.Params.main.business.subTitle }}
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+
+        {{ range .Site.Params.main.business.content }}
+
+        <div
+          class="flex flex-col rounded-xl border border-neutral-200 text-neutral-800 dark:border-neutral-800 dark:text-neutral-200">
+          <div class="flex-none overflow-hidden rounded-t-xl object-center">
+            <img src="{{ .img }}" alt="{{ .text }}"
+              class="max-h-56 w-full object-cover blur-[2px] md:max-h-64 lg:max-h-72" />
+          </div>
+          <div class="flex flex-auto flex-col justify-between gap-4 p-4">
+            <div class="z-1 flex flex-col gap-4">
+              <div class="text-lg font-bold sm:text-xl">{{ .text }}</div>
+            </div>
+            <div class="z-1 flex items-center justify-between gap-4">
+              <div class="flex-auto text-sm text-neutral-600 md:text-base dark:text-neutral-400">
+                {{ .description }}
+              </div>
+            </div>
+            <div class="flex justify-end">
+              <a href="{{ .link.url }}" class="rounded-lg bg-neutral-100 px-2 py-1.5 text-sm dark:bg-neutral-800">{{
+                .link.text }}</a>
+            </div>
+          </div>
+        </div>
+
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  <!-- 企业文化 -->
+  <section id="culture" class="bg-neutral-50 dark:bg-neutral-950">
+    <div class="mx-auto max-w-screen-xl space-y-6 p-4 py-12 sm:space-y-8 md:space-y-10">
+      <div class="space-y-1 sm:space-y-2 md:space-y-3 md:px-4">
+        <h2 class="text-center text-xl font-extrabold text-neutral-900 sm:text-2xl md:text-3xl dark:text-white">
+          {{ .Site.Params.main.culture.title }}
+        </h2>
+        <p
+          class="mx-auto max-w-3xl text-center text-base font-normal text-neutral-500 sm:text-lg lg:text-xl dark:text-neutral-400">
+          {{ .Site.Params.main.culture.subTitle }}
+        </p>
+      </div>
+      <div class="flex justify-between flex-col sm:flex-row gap-4">
+        <div class="w-full flex justify-between flex-col gap-4 text-neutral-800 dark:text-neutral-200">
+          <!-- 使命 -->
+          <div
+            class="min-h-36 h-full rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-900 dark:bg-black">
+            <div class="flex flex-col gap-4">
+              <span class="text-sm md:text-base font-semibold text-neutral-600 dark:text-neutral-400">{{
+                .Site.Params.main.culture.mission.title }}</span>
+              <span class="text-base md:text-lg text-neutral-800 dark:text-neutral-200">{{
+                .Site.Params.main.culture.mission.text }}</span>
+            </div>
+
+          </div>
+          <!-- 愿景 -->
+          <div
+            class="min-h-36 h-full rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-900 dark:bg-black">
+            <div class="flex flex-col gap-4">
+              <span class="text-sm md:text-base font-semibold text-neutral-600 dark:text-neutral-400">{{
+                .Site.Params.main.culture.vision.title }}</span>
+              <span class="text-base text-neutral-800 md:text-lg dark:text-neutral-200">{{
+                .Site.Params.main.culture.vision.text }}</span>
+            </div>
+          </div>
+        </div>
+        <!-- 价值观 -->
+
+        <div class="w-full  flex-auto">
+          <div
+            class="min-h-64 cursor-pointer rounded-lg border border-neutral-200 dark:border-neutral-900 bg-white p-4 dark:bg-black">
+            <div class="flex flex-col gap-4">
+              <h3 class="text-sm font-semibold text-neutral-600 md:text-base dark:text-neutral-400">
+                {{ .Site.Params.main.culture.values.title }}</h3>
+              <div class="scrollbars-hidden max-h-72 overflow-y-auto">
+                <ul class="list-inside list-disc space-y-4 text-neutral-800 dark:text-neutral-200">
+                  {{ range .Site.Params.main.culture.values.content }}
+                  {{ if .list }}
+                  <li>
+                    {{ .item }}
+                    <ul class="mt-2 list-inside list-decimal space-y-1 ps-5">
+                      {{ range .list }}
+                      <li>{{ .text }}</li>
+                      {{ end }}
+                    </ul>
+                  </li>
+                  {{ else }}
+                  <li>{{ .item }}</li>
+                  {{ end }}
+
+                  {{ end }}
+
+                </ul>
+              </div>
+
+              <div class="text-xs p-2 text-neutral-500 dark:text-neutral-400">提示：上下滑动查看更多内容</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </section>
-  <section class="grid grid-cols-1 md:grid-cols-2 gap-5">
-    {{range .Site.Params.main.card}}
-    <div
-      class="w-full min-h-[15rem] md:min-h-[23rem] flex flex-col justify-between gap-3 text-neutral-100 border border-neutral-300 dark:border-neutral-600 rounded-xl p-4 md:p-6 "
-      style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ .bgImg }}') no-repeat center; background-size: cover;">
-      <div class="flex flex-col gap-3">
-        <div class="text-sm">{{.subTitle}}</div>
-        <div class="text-2xl md:text-3xl font-bold">{{ .title}}</div>
+  <!-- 发展历程 -->
+  <section id="develop">
+    <div class="mx-auto max-w-screen-xl space-y-6 p-4 py-12 sm:space-y-8 md:space-y-10">
+      <div class="space-y-1 sm:space-y-2 md:space-y-3 md:px-4">
+        <h2 class="text-center text-xl font-extrabold text-neutral-900 sm:text-2xl md:text-3xl dark:text-white">
+          {{ .Site.Params.main.develop.title }}
+        </h2>
+        <p
+          class="mx-auto max-w-3xl text-center text-base font-normal text-neutral-500 sm:text-lg lg:text-xl dark:text-neutral-400">
+          {{ .Site.Params.main.develop.subTitle }}
+        </p>
       </div>
-      <div class="flex justify-between items-center">
-        <div class="">{{ .description }}</div>
-        {{ if .butLink }}
-        <a href="{{.butLink }}"
-          class="bg-neutral-100/30  hover:bg-sky-500 font-medium mr-2 px-2 py-1.5 rounded-full flex justify-start items-center"
-          target="_blank">
-          <span class="p-1.5 mr-2 rounded-full border bg-neutral-100">
-            <svg class="w-3 h-3 text-neutral-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"></path>
-            </svg>
-          </span>
-          <span class="mr-2 text-sm md:text-base font-medium">{{.butText}}</span>
-        </a>
-        {{end}}
+      <div class="flex flex-col gap-2 space-y-0 md:flex-row md:gap-4">
+        <!-- 年份 -->
+        <div class="flex flex-row justify-center">
+          <ul
+            class="scrollbars-hidden flex max-h-96 overflow-scroll rounded-full bg-neutral-50 px-3 py-2 text-sm font-medium md:flex-col md:gap-2 md:rounded-lg md:p-4 md:text-base dark:bg-neutral-950"
+            data-tabs-toggle="year-tab-content"
+            data-tabs-active-classes="text-white bg-sky-500 dark:bg-sky-700 rounded-full" role="tablist">
+            {{ range .Site.Params.main.develop.content}}
+            {{ if .year}}
+
+            <li>
+              <button
+                class="min-w-16 md:min-w-28 px-2 py-1 md:px-4 md:py-2"
+                id="{{ .year }}-tab" data-tabs-target="#year-{{ .year }}" type="button" role="tab"
+                aria-controls="year-{{ .year }}" {{ if ( eq .year now.Year) }} aria-selected="true" {{else}}
+                aria-selected="false" {{ end }}>
+                {{ .year }}
+              </button>
+            </li>
+            {{ end }}
+            {{ end }}
+          </ul>
+        </div>
+        <!-- 事件 -->
+        <div id="year-tab-content" class="flex-1">
+          {{ range .Site.Params.main.develop.content}}
+          {{ if .year}}
+          <div class="hidden min-h-96 rounded-lg bg-neutral-50 p-6 md:px-8 dark:bg-neutral-950" id="year-{{ .year }}"
+            role="tabpanel" aria-labelledby="year-{{ .year }}-tab">
+            <ol class="relative space-y-6 border-s-2 border-neutral-300 dark:border-neutral-700">
+              {{ range .list}}
+              <li class="ms-4 space-y-3">
+                <div class="absolute -start-1.5 mt-2 h-2.5 w-2.5 rounded-full bg-neutral-300 dark:bg-neutral-800"></div>
+                <time class="mb-1 text-sm text-neutral-600 dark:text-neutral-400">{{ .time}}</time>
+                <p class="text-base text-neutral-800 dark:text-neutral-200">
+                  {{ .event }}
+                </p>
+              </li>
+              {{ end }}
+            </ol>
+          </div>
+          {{ end }}
+          {{ end }}
+        </div>
       </div>
     </div>
-    {{ end }}
+  </section>
+  <!-- 联系我们 -->
+  <section id="contact" class="bg-neutral-50 dark:bg-neutral-950">
+    <div class="mx-auto max-w-screen-xl space-y-6 p-4 py-12 sm:space-y-8 md:space-y-10">
+      <div class="space-y-1 sm:space-y-2 md:space-y-3 md:px-4">
+        <h2 class="text-center text-xl font-extrabold text-neutral-900 sm:text-2xl md:text-3xl dark:text-white">
+          {{ .Site.Params.main.contact.title }}
+        </h2>
+        <p
+          class="mx-auto max-w-3xl text-center text-base font-normal text-neutral-500 sm:text-lg lg:text-xl dark:text-neutral-400">
+          {{ .Site.Params.main.contact.subTitle }}
+        </p>
+      </div>
+      <div class=" flex-1 flex flex-col gap-4 justify-center items-center p-4">
+        <!-- 名片 -->
+        <div class="w-full flex flex-col md:flex-row flex-wrap justify-between items-center gap-4">
+          <!-- 杨祖攀 -->
+
+          {{ range .Site.Params.main.contact.content}}
+          <div class="w-full md:w-auto flex flex-col gap-4  items-center">
+            <!-- 名片内容 -->
+            <div data-card-content
+              class="card w-full flex flex-col gap-2 justify-center items-center bg-white dark:bg-neutral-900 md:p-6 rounded-xl border border-neutral-200 dark:border-neutral-900">
+              <img src="" class="w-64 h-64 hidden md:block rounded-md" data-qrcode-img alt="二维码图片" srcset="">
+              <div class="text-sm text-neutral-600 dark:text-neutral-400 hidden md:block">{{ .tips }}
+              </div>
+              <a class="w-full" href="{{ .link }}" data-qrcode-link="{{ .link }}">
+                <div
+                  class="w-full flex justify-between items-center md:bg-neutral-100 md:dark:bg-neutral-700 p-4 rounded-xl md:mt-2">
+                  <div class="flex gap-4">
+                    <img class="w-12 h-12 rounded-full bg-center bg-no-repeat" src="{{ .avatar }}" alt="">
+                    <div class="space-y-1">
+                      <div class="name text-base font-semibold">{{ .name }}</div>
+                      <div class="text-sm text-neutral-600 dark:text-neutral-400">{{ .subTitle }}</div>
+                    </div>
+                  </div>
+                  <svg class="w-6 h-6 md:hidden text-neutral-700 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m9 5 7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+            <!-- 下载名片 -->
+            {{ if .isDownload}}
+            <div class="download w-full  hidden md:flex md:justify-center cursor-pointer" data-card-download>
+              <svg class="w-6 h-6 text-neutral-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 15v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2m-8 1V4m0 12-4-4m4 4 4-4" />
+              </svg>
+            </div>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+        <!-- 提示 -->
+        <div class="text-sm text-neutral-600 md:hidden">{{ .Site.Params.main.contact.tip}}</div>
+        </main>
+      </div>
+
   </section>
 </div>
 {{ end }}
@@ -73,7 +336,7 @@
 {{ define "other" }}
 <div id="wxDropdown" class="z-10 hidden bg-neutral-100 divide-y rounded-lg  w-44 dark:bg-neutral-800">
   <div class="p-4">
-    <img src="" data-qrcode-link="https://u.wechat.com/EDzlGOmsLmBcZb_TCeBThNg" data-qrcode-img alt="微信二维码">
+    <img src="" data-qrcode-link="http://weixin.qq.com/r/qhKstGrEATd_rS7X90e4" data-qrcode-img alt="微信二维码">
   </div>
 </div>
 {{ end }}
