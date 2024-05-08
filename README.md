@@ -6,7 +6,7 @@
 
 ## 演示
 
-本网站采用多线路并行部署，一份源码同时分发给多个托管服务商（阿里云、Github、Cloudflare 和 Netlify）。
+本网站采用多线路并行部署，一份源码同时分发给多个托管服务商（阿里云、Github、Cloudflare等）。
 
 ### 阿里云
 
@@ -28,10 +28,4 @@
 
 本站使用了 Cloudflare 提供的静态网站托管服务 Cloudflare Pages，演示地址如下：
 
-- [https://yangzupan.pages.dev](https://yangzupan.pages.dev)
-
-### Netlify
-
-本站使用了 Netlify 提供的静态网站托管服务，演示地址如下：
-
-- [https://yangzupan.netlify.app](https://yangzupan.netlify.app)
+- [https://huasikeji.pages.dev](https://huasikeji.pages.dev)
