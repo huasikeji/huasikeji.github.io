@@ -2,11 +2,11 @@
 
 ## 简介
 
-本项目是 [花思科技](https://www.huasikeji.com/)的官方网站。本项目采用 [Hugo](https://gohugo.io/) 进行构建。
+本项目是 [花思科技](https://www.huasikeji.com/) 的官方网站。本项目采用 [Hugo](https://gohugo.io/) 进行构建。
 
 ## 演示
 
-本网站采用多线路并行部署，一份源码同时分发给多个托管服务商（阿里云、Github、Cloudflare等）。
+本网站采用多线路并行部署，一份源码同时分发给多个托管服务商（阿里云、Github、Cloudflare 等）。
 
 ### 阿里云
 
