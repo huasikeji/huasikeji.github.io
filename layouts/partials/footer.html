@@ -6,8 +6,8 @@
             {{ if .isQrCode}}
             {{ if .id}}
             <button data-dropdown-toggle="{{ .id }}" data-dropdown-placement="{{ .direction }}"
-                class="group p-3  flex justify-center items-center  rounded-full bg-neutral-200 dark:bg-neutral-800 hover:bg-sky-500 dark:hover:bg-sky-500">
-                <i class="{{ .icon }} fa-xl"></i>
+                class="group w-11 h-11 flex justify-center items-center  rounded-full bg-neutral-200 dark:bg-neutral-800 hover:bg-sky-500 dark:hover:bg-sky-500">
+                <i class="{{ .icon }} fa-xl text-neutral-700 dark:text-neutral-100"></i>
             </button>
             <div id="{{ .id }}" class="z-10  w-44 hidden bg-white dark:bg-neutral-900  rounded-lg border border-neutral-200 dark:border-neutral-900">
                 <div class="p-4">
@@ -18,21 +18,17 @@
             {{ else}}
             {{ if .link}}
             <a href="{{ .link }}"
-                class="group p-3 rounded-full bg-neutral-200 dark:bg-neutral-800 hover:bg-sky-500 dark:hover:bg-sky-500"
+                class="group w-11 h-11 flex justify-center items-center rounded-fulll bg-neutral-200 dark:bg-neutral-800 hover:bg-sky-500 dark:hover:bg-sky-500"
                 target="_blank" rel="noopener noreferrer">
-                <i class="{{ .icon }} fa-xl"></i>
+                <i class="{{ .icon }} fa-lg text-neutral-700 dark:text-neutral-100"></i>
             </a>
             {{ end }}
             {{ end }}
             {{ end }}
             <!-- 夜间模式 -->
             <button id="theme-toggle" type="button" onclick="switchDarkMode()"
-                class="group p-3.5 rounded-full bg-neutral-200 dark:bg-neutral-800 hover:bg-sky-500 dark:hover:bg-sky-500">
-                <svg class="w-5 h-5 text-neutral-700 group-hover:text-neutral-100 dark:text-neutral-200" fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path
-                        d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" />
-                </svg>
+                class="group w-11 h-11 flex justify-center items-center rounded-full bg-neutral-200 dark:bg-neutral-800 hover:bg-sky-500 dark:hover:bg-sky-500">
+                <i class="fa-solid fa-lightbulb fa-lg text-neutral-700 dark:text-neutral-100"></i>
             </button>
         </div>
         <hr class="border-neutral-300 dark:border-neutral-700 ">
