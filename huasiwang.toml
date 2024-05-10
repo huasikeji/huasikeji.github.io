@@ -14,7 +14,13 @@ publishDir = 'public2'
     siteDescription = '花点心思，遇见更好的你。一家为你花心思的公司'
 
 [[params.head.cssFile]]
-    link = 'https://cdn.huasikeji.com/libs/fontawesome/6.5.2/css/all.min.css'
+
+[[params.head.jsFile]]
+    link = 'https://cdn.huasikeji.com/libs/fontawesome/6.5.2/js/brands.min.js'
+[[params.head.jsFile]]
+    link = 'https://cdn.huasikeji.com/libs/fontawesome/6.5.2/js/solid.min.js'
+[[params.head.jsFile]]
+    link = 'https://cdn.huasikeji.com/libs/fontawesome/6.5.2/js/fontawesome.min.js'
 
 [[params.header.index.but]]
     title = '了解更多'
