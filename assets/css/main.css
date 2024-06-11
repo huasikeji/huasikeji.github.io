@@ -920,7 +920,7 @@ input:checked + .toggle-bg {
 
   font-display: swap;
 
-  src: url(https://cdn.yangzupan.com/fonts/zhimangxing/zhimangxing-Regular.woff) format('woff');
+  src: url(https://cdn.huasikeji.com/fonts/zhimangxing/zhimangxing-Regular.woff) format('woff');
 }
 
 *, ::before, ::after {
@@ -1342,8 +1342,8 @@ input:checked + .toggle-bg {
   width: 1rem;
 }
 
-.w-44 {
-  width: 11rem;
+.w-40 {
+  width: 10rem;
 }
 
 .w-5 {
@@ -1364,10 +1364,6 @@ input:checked + .toggle-bg {
 
 .w-full {
   width: 100%;
-}
-
-.w-40 {
-  width: 10rem;
 }
 
 .min-w-16 {
@@ -1706,11 +1702,6 @@ input:checked + .toggle-bg {
   border-color: rgb(212 212 212 / var(--tw-border-opacity));
 }
 
-.border-gray-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
-}
-
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(26 86 219 / var(--tw-bg-opacity));
@@ -2016,12 +2007,6 @@ input:checked + .toggle-bg {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-sm {
-  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .outline {
   outline-style: solid;
 }
@@ -2058,10 +2043,6 @@ input:checked + .toggle-bg {
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
 }
 
 .ease-out {
@@ -2330,11 +2311,6 @@ input:checked + .toggle-bg {
 
   .md\:rounded-lg {
     border-radius: 0.5rem;
-  }
-
-  .md\:bg-neutral-100 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(245 245 245 / var(--tw-bg-opacity));
   }
 
   .md\:bg-neutral-200 {
@@ -2617,11 +2593,6 @@ input:checked + .toggle-bg {
 .dark\:hover\:text-white:hover:where(.dark, .dark *) {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.dark\:focus\:ring-blue-800:focus:where(.dark, .dark *) {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(30 66 159 / var(--tw-ring-opacity));
 }
 
 @media (min-width: 768px) {
